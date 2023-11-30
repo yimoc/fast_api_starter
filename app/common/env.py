@@ -9,9 +9,6 @@ class Settings(BaseSettings):
     NAME: str
     PORT: str
     DATABASE_URL: str
-    MODEL_CLIENT_SERVER_URL: str
-    MODEL_SERVER_WITH_LOCAL: str        # Model service 와 같은 서버에 구동하는지 여부 : True 인 경우 이미지을 path로 전달
-    WORKSPACE_PATH: str
     # class Config:
     #     env_file = os.path.join(os.path.dirname(os.path.realpath(__file__)),'.env')
 

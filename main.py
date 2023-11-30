@@ -14,7 +14,7 @@ from main_init import app_path
 from app.api.root_router import root_router
 from app.core.app_meta import AppState
 from app.core.config.config import FileConfig
-from app.core.config.env import Settings, get_env_type
+from app.common.env import Settings, get_env_type
 from app.core.sqlalchemy.database import db_connector, create_db_and_tables
 
 def set_state_app(app : FastAPI, settings, config):
@@ -81,8 +81,6 @@ set_state_app(app, settings, config)
 # app.add_middleware(SessionMiddleware, secret_key="some-random-string")
 logger.info("| PORT :%s", app.state.settings.PORT)
 logger.info("| DB URL :%s", app.state.settings.DATABASE_URL)
-logger.info("| WORKSPACE : %s", app.state.settings.WORKSPACE_PATH)
-logger.info("| MODEL_CLIENT_SERVER_URL : %s", app.state.settings.MODEL_CLIENT_SERVER_URL)
 
 @app.on_event("startup")
 async def startup():

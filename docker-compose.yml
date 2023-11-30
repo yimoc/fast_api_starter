@@ -8,9 +8,10 @@ services:
     ports:
       - "33060:3306"
     volumes:
-      - ./data:/var/lib/mysql
-      - ./config:/etc/mysql/conf.d
+      - ./mariadb/data:/var/lib/mysql
+      - ./mariadb/config:/etc/mysql/conf.d
     environment:
+      MARIADB_DATABASE: starter
       MYSQL_ROOT_PASSWORD: pswd01
       MARIADB_USER: user1
       MARIADB_PASSWORD: pswd01
