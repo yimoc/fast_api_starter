@@ -1,20 +1,21 @@
-version: "3"
+version: '3.1'
+
 services:
   mariadb:
     container_name: mariadb
-    image: mariadb:10
-    command: --default-authentication-plugin=mysql_native_password
+    image: mariadb:11.1.1-rc
     restart: always
     ports:
-      - 3306:3306
+      - "33060:3306"
     volumes:
-      - "./mariadb/conf.d:/etc/mysql/conf.d"
-      - mariadb-data:/var/lib/mysql
+      - ./data:/var/lib/mysql
+      - ./config:/etc/mysql/conf.d
     environment:
-      MARIADB_DATABASE: sample
-      MARIADB_USER: admin
-      MARIADB_PASSWORD: pwd01
-      MARIADB_ROOT_PASSWORD: pwd01
+      MYSQL_ROOT_PASSWORD: pswd01
+      MARIADB_USER: user1
+      MARIADB_PASSWORD: pswd01
       TZ: Asia/Seoul
-volumes:
-  mariadb-data:
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+
