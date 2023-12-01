@@ -33,6 +33,7 @@ class AsyncDatabaseConnector:
             future=future,
             pool_recycle=pool_recycle,
             connect_args=connect_args,
+            pool_pre_ping=True,
             #pool_size=pool_size,
             #max_overflow=max_overflow
         )
